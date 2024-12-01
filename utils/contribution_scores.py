@@ -4,6 +4,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from collections import Counter
 
+
 def preprocess_smiles(df: pd.DataFrame, column_name: str = 'Smiles'):
     """
     Preprocess a DataFrame to remove rows with null or invalid SMILES strings
@@ -80,5 +81,3 @@ def calculate_contribution_scores(fragment_counts: Counter):
             contribution_scores[fragment] = float('-inf')  # Handle case when no fragment types are identified
     
     return contribution_scores
-
-
