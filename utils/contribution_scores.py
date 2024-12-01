@@ -19,9 +19,6 @@ def preprocess_smiles(df: pd.DataFrame, column_name: str = 'Smiles'):
     # Filter out invalid SMILES and convert to molecular objects
     molecules = [mol for smiles in df[column_name].dropna() if (mol := Chem.MolFromSmiles(smiles))]
     
-    # Log the count of valid molecules
-    print(f'Number of valid molecules: {len(molecules)}')
-    
     return molecules
 
 
